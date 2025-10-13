@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discover Indian Heritage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #fdfbf7;
+      color: #2e2e2e;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(to right, #b22222, #ff9933);
+      color: #fff;
+      padding: 70px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.3em;
+      opacity: 0.95;
+    }
+
+    nav {
+      background: #2e2e2e;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s, transform 0.2s;
+    }
+    nav a:hover {
+      color: #ff9933;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      color: #b22222;
+      font-size: 2.2em;
+      margin-bottom: 45px;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #ff9933;
+      margin: 12px auto 0;
+      border-radius: 3px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      color: #ff9933;
+      margin-top: 0;
+      font-size: 1.3em;
+    }
+
+    .contact-box {
+      background: #fff3e0;
+      padding: 30px;
+      border-left: 6px solid #b22222;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    .contact-box b {
+      color: #b22222;
+    }
+
+    footer {
+      background: #2e2e2e;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.95em;
+      margin-top: 40px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Discover Indian Heritage</h1>
+    <p>Unveiling the soul of India through its culture, monuments, and traditions</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#roles">Roles</a>
+    <a href="#monuments">Monuments</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>Why This Platform?</h2>
+    <p>
+      India’s heritage is a timeless treasure. This platform invites you to wander through 
+      ancient temples, grand forts, and vibrant traditions — all from your screen. 
+      Whether you are a curious learner or a cultural explorer, history is brought to life 
+      in a way that feels personal and immersive.
+    </p>
+  </section>
+
+  <section id="roles">
+    <h2>Who Makes This Possible?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>👑 Admin</h3>
+        <p>Ensures every piece of information is accurate, authentic, and meaningful.</p>
+      </div>
+      <div class="card">
+        <h3>🎭 Cultural Enthusiast</h3>
+        <p>Dives into virtual tours, discussions, and the richness of India’s legacy.</p>
+      </div>
+      <div class="card">
+        <h3>✍ Content Creator</h3>
+        <p>Crafts engaging articles, videos, and interactive features for you to explore.</p>
+      </div>
+      <div class="card">
+        <h3>🧭 Tour Guide</h3>
+        <p>Walks you through monuments, shares stories, and answers your curious questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="monuments">
+    <h2>Monuments That Speak</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Taj Mahal</h3>
+        <p>The eternal symbol of love in Agra, carved in white marble.</p>
+      </div>
+      <div class="card">
+        <h3>Qutub Minar</h3>
+        <p>A towering minaret in Delhi that whispers stories from 1193.</p>
+      </div>
+      <div class="card">
+        <h3>Charminar</h3>
+        <p>The heart of Hyderabad, where Indo-Islamic design meets local culture.</p>
+      </div>
+      <div class="card">
+        <h3>Konark Sun Temple</h3>
+        <p>A chariot of stone in Odisha, devoted to the Sun God’s glory.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s Connect</h2>
+    <div class="contact-box">
+      <p>Have questions or want to collaborate?</p>
+      <p>Email us: <b>heritage@india.org</b></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Discover Indian Heritage | Made with ❤ for culture</p>
+  </footer>
+</body>
+</html>

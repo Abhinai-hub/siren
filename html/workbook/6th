@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App (Mock)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #weather { margin-top: 20px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <h2>Weather App</h2>
+  <input type="text" id="cityInput" placeholder="Enter city name" />
+  <button id="getWeatherBtn">Get Weather</button>
+
+  <div id="weather"></div>
+
+  <script>
+    const weatherDisplay = document.getElementById('weather');
+    const cityInput = document.getElementById('cityInput');
+    const getWeatherBtn = document.getElementById('getWeatherBtn');
+
+    // Simulate weather data
+    const weatherConditions = ["Sunny", "Cloudy", "Rainy", "Stormy", "Snowy"];
+    const getRandomWeather = () => {
+      const temp = Math.floor(Math.random() * 40); // 0 to 39 degrees
+      const condition = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+      return { temp, condition };
+    };
+
+    // Simulate async fetch
+    const fetchWeatherData = async (city) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (!city || city.trim() === "") {
+            reject("City name cannot be empty.");
+          } else {
+            const data = getRandomWeather();
+            resolve({ city, ...data });
+          }
+        }, 1000); // Simulated delay
+      });
+    };
+
+    // Display weather
+    const displayWeather = (data) => {
+      weatherDisplay.innerHTML = `
+        <h3>Weather for ${data.city}</h3>
+        <p>Temperature: ${data.temp}°C</p>
+        <p>Condition: ${data.condition}</p>
+      `;
+    };
+
+    // Display error
+    const displayError = (message) => {
+      weatherDisplay.innerHTML = <p class="error">${message}</p>;
+    };
+
+    // Main handler
+    const handleGetWeather = async () => {
+      const city = cityInput.value;
+      try {
+        const weatherData = await fetchWeatherData(city);
+        displayWeather(weatherData);
+        localStorage.setItem('lastCity', city);
+      } catch (error) {
+        displayError(error);
+      }
+    };
+
+    // Event listener
+    getWeatherBtn.addEventListener('click', handleGetWeather);
+
+    // Load from localStorage on page load
+    window.onload = async () => {
+      const savedCity = localStorage.getItem('lastCity');
+      if (savedCity) {
+        cityInput.value = savedCity;
+        try {
+          const weatherData = await fetchWeatherData(savedCity);
+          displayWeather(weatherData);
+        } catch (error) {
+          displayError(error);
+        }
+      }
+    };
+  </script>
+
+</body>
+</html>

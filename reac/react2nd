@@ -1,0 +1,9 @@
+function Ffun(a,b) {
+    const c=a+b;
+    return (
+        <div>
+            <h1>Sum of {a} and {b} is {c}</h1>
+        </div>
+    );
+}
+export default Ffun;
