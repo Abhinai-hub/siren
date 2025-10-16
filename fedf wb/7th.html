@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Issuance Management System</title>
+  <style>
+    /* ======= GLOBAL STYLES ======= */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #a8dadc, #457b9d);
+      color: #fff;
+      text-align: center;
+      padding: 25px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      background-color: #edf2f7;
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid #d1d9e6;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #333;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background-color: #cde7f0;
+      border-radius: 6px;
+    }
+
+    section {
+      display: none;
+      padding: 30px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    h2 {
+      color: #1d3557;
+      margin-bottom: 15px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #d1d9e6;
+      border-radius: 6px;
+      font-size: 15px;
+      background-color: #f8fafc;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #457b9d;
+      box-shadow: 0 0 5px rgba(69, 123, 157, 0.3);
+    }
+
+    button.submit {
+      background-color: #48bfe3;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    button.submit:hover {
+      background-color: #0096c7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #edf2f7;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Loan Issuance Management System</h1>
+    <p>Track • Manage • Analyze • Secure</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('admin')">Admin</button>
+    <button onclick="showSection('lender')">Lender</button>
+    <button onclick="showSection('borrower')">Borrower</button>
+    <button onclick="showSection('analyst')">Analyst</button>
+  </nav>
+
+  <!-- Admin Section -->
+  <section id="admin" class="active">
+    <div class="card">
+      <h2>Admin Panel</h2>
+      <p>Manage users, oversee transactions, and ensure platform security.</p>
+      <form>
+        <label>New User Name:</label>
+        <input type="text" placeholder="Enter name" />
+        <label>Role:</label>
+        <select>
+          <option>Lender</option>
+          <option>Borrower</option>
+          <option>Analyst</option>
+        </select>
+        <button class="submit">Add User</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Lender Section -->
+  <section id="lender">
+    <div class="card">
+      <h2>Lender Dashboard</h2>
+      <p>Create and manage loan offers, interest rates, and borrower interactions.</p>
+      <form>
+        <label>Loan Offer Title:</label>
+        <input type="text" placeholder="Enter loan name" />
+        <label>Interest Rate (%):</label>
+        <input type="number" placeholder="e.g., 8.5" />
+        <label>Loan Amount:</label>
+        <input type="number" placeholder="e.g., 500000" />
+        <button class="submit">Create Loan Offer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Borrower Section -->
+  <section id="borrower">
+    <div class="card">
+      <h2>Borrower Dashboard</h2>
+      <p>Apply for loans and track your repayment schedule easily.</p>
+      <form>
+        <label>Loan Type:</label>
+        <input type="text" placeholder="Enter loan type" />
+        <label>Requested Amount:</label>
+        <input type="number" placeholder="Enter amount" />
+        <button class="submit">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Analyst Section -->
+  <section id="analyst">
+    <div class="card">
+      <h2>Financial Analyst Panel</h2>
+      <p>Analyze loan data, assess risks, and generate reports.</p>
+      <form>
+        <label>Paste Loan Data:</label>
+        <textarea rows="5" placeholder="Enter loan details or data..."></textarea>
+        <button class="submit">Generate Report</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Loan Issuance Management System | Designed for FEDF-PS15
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach((sec) => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</body>
+</html>

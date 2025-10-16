@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakery Promotional Page</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    header { background: #f8e8d0; position: relative; z-index: 1000; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.8rem; color: #5a3825; }
+    nav#main-nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 2000; }
+    nav#main-nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; padding: 0.75rem 0; }
+    nav#main-nav a { text-decoration: none; color: #5a3825; font-weight: bold; transition: color 0.3s; }
+    nav#main-nav a:hover { color: #8c5a3c; }
+    #slideshow { margin-top: 60px; }
+    .slides { position: relative; overflow: hidden; height: 300px; max-width: 1200px; margin: 0 auto; }
+    .slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
+    .slide.active { opacity: 1; }
+    .slide img { width: 100%; height: auto; display: block; }
+    #featured { padding: 2rem; text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .product-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .product-card img { width: 100%; display: block; }
+    .product-card h3 { margin: 0.75rem; color: #5a3825; }
+    .product-card p { margin: 0 0.75rem 1rem 0.75rem; font-size: 0.95rem; color: #555; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    #about, #contact { padding: 2rem; max-width: 800px; margin: 0 auto; text-align: center; }
+    #about h2, #contact h2 { margin-bottom: 1rem; color: #5a3825; }
+    footer { background: #f0ece2; padding: 1rem; text-align: center; font-size: 0.9rem; margin-top: 2rem; }
+    @media (max-width: 1024px) {
+      .header-inner { flex-direction: column; gap: 1rem; }
+      nav#main-nav ul { gap: 1.5rem; }
+    }
+    @media (max-width: 768px) {
+      .slides { height: 200px; }
+      nav#main-nav ul { gap: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .slides { height: 150px; }
+      .logo { font-size: 1.4rem; }
+      nav#main-nav ul { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1 class="logo">My Bakery</h1>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#slideshow">Home</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="slideshow">
+    <div class="slides">
+      <div class="slide active">
+        <img src="https://images.pexels.com/photos/3756523/pexels-photo-3756523.jpeg" alt="Bakery Image 1" />
+      </div>
+      <div class="slide">
+        <img src="https://images.pexels.com/photos/3756521/pexels-photo-3756521.jpeg" alt="Bakery Image 2" />
+      </div>
+      <div class="slide">
+        <img src="https://images.pexels.com/photos/374907/pexels-photo-374907.jpeg" alt="Bakery Image 3" />
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://images.pexels.com/photos/2041622/pexels-photo-2041622.jpeg" alt="Croissant" />
+        <h3>Croissant</h3>
+        <p>Flaky buttery croissant baked fresh daily.</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.pexels.com/photos/3945660/pexels-photo-3945660.jpeg" alt="Baguette" />
+        <h3>Baguette</h3>
+        <p>Classic French baguette with crisp crust.</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg" alt="Chocolate Cake" />
+        <h3>Chocolate Cake</h3>
+        <p>Rich, decadent chocolate cake.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to My Bakery! We bake fresh breads, pastries, and cakes each day. Our mission is to bring joy through freshly baked goods, quality ingredients, and warm service.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@mybakery.com</p>
+    <p>Phone: +91 12345 67890</p>
+    <p>Address: 123 Bakery Street, Your City, State</p>
+  </section>
+
+  <footer>
+    <p>© 2025 My Bakery. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('active', idx === index);
+        });
+      }
+      function nextSlide() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }
+      showSlide(current);
+      setInterval(nextSlide, 4000);
+    });
+  </script>
+</body>
+</html>
